@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balaji Traders | Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfdfd;
+      color: #000;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      background-color: #fff;
+      padding: 12px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .logo img {
+      height: 80px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      padding: 8px 14px;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #BA487F;
+      text-decoration: none;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      color: #333;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+      }
+    }
+
+    h2.section-title {
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    h2.section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+    }
+
+    .section-title::before {
+     background-color: #BA487F;
+     margin-left: 20px;
+     }
+     
+    .hero {
+      background-image: url('images/b1.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 {
+    font-size: 2.8rem;
+      color: #fff;
+      text-shadow: 2px 2px 5px #000;
+      z-index: 1;
+      position: relative;
+    } 
+
+.why-choose-us {
+  background-color: #fff;
+}
+
+.why-choose-us h2{
+  margin-left: 20px;
+}
+.feature-box {
+  text-align: center;
+  padding: 25px 20px;
+  background: #fff;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color:#BA487F;
+  margin-bottom: 15px;
+}
+
+    .footer {
+      background-color: #0b0b1f;
+      color: #fff;
+      padding: 60px 20px;
+    }
+
+    .footer h5 {
+      color:#BA487F;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer a {
+      color: #ccc;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer a:hover {
+      color: #BA487F;
+        text-decoration: none;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+   
+  .social-sticky {
+    position: fixed;
+    top: 40%;
+    right: 10px;
+    z-index: 999;
+  }
+
+  .social-sticky a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.4rem;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.3s;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+  }
+
+  .social-sticky a:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .social-sticky a[href*="wa.me"] {
+    background: #25D366;
+  }
+
+  .social-sticky a[href*="wa.me"]:hover {
+    background: #1eb149;
+  }
+
+  .social-sticky a[href*="instagram"] {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  }
+
+  .social-sticky a[href*="instagram"]:hover {
+    filter: brightness(1.1);
+  }
+
+  .social-sticky a[href*="facebook"] {
+    background: #1877F2;
+  }
+
+  .social-sticky a[href*="facebook"]:hover {
+    background: #145dc2;
+  }
+
+  .social-sticky a[href*="youtube"] {
+    background: #FF0000;
+  }
+
+  .social-sticky a[href*="youtube"]:hover {
+    background: #cc0000;
+  }
+
+  @media (max-width: 768px) {
+    .social-sticky{
+       top: auto;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  
+    }
+    }
+
+</style>
+</head>
+<body>  
+ <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="Balaji Logo">
+      </a>
+      <div class="menu-icon" id="menu-icon">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+  <h1 id="typewriter"></h1>
+</section>
+
+<section class="py-16 bg-gray-50" id="services">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-pink-700 mb-6">Our Services</h2>
+    <p class="text-gray-600 mb-12 text-lg">We provide top-notch construction solutions tailored for every project.</p>
+    <div class="grid md:grid-cols-3 gap-10">
+      
+      <div class="bg-white shadow-xl rounded-2xl p-8 transition-transform hover:scale-105 hover:shadow-2xl duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Planning" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Planning & Design</h3>
+        <p class="text-gray-600">We develop detailed construction plans with cost-effective designs and efficient workflows.</p>
+      </div>
+      
+      <div class="bg-white shadow-xl rounded-2xl p-8 transition-transform hover:scale-105 hover:shadow-2xl duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Building" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Structural Work</h3>
+        <p class="text-gray-600">From foundation to finish — we ensure strong, reliable structures using best-grade materials.</p>
+      </div>
+      
+      <div class="bg-white shadow-xl rounded-2xl p-8 transition-transform hover:scale-105 hover:shadow-2xl duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/1406/1406362.png" alt="Supervision" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Site Supervision</h3>
+        <p class="text-gray-600">Our expert engineers oversee every phase to maintain standards and timely delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-white" id="floor-plan">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-pink-700 mb-6">Floor Plans</h2>
+    <p class="text-gray-600 mb-12 text-lg">Innovative layouts to optimize your space with style and functionality.</p>
+    <div class="grid md:grid-cols-2 gap-10">
+      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+        <img src="images/floor2.jpg" alt="Plan 1" class="w-full h-72 object-cover">
+      </div>
+      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+        <img src="images/floor3.jpg" alt="Plan 2" class="w-full h-72 object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gray-100" id="interior-design">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-pink-700 mb-6">Interior Design</h2>
+    <p class="text-gray-600 mb-12 text-lg">Modern, minimal, and luxurious interior finishes to match your taste.</p>
+    <div class="grid md:grid-cols-3 gap-10">
+      
+      <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+        <img src="images/int.jpg" alt="Interior 1" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-lg font-semibold py-3 px-4">Living Room</div>
+      </div>
+    
+      <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+        <img src="images/int6.jpg" alt="Interior 2" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-lg font-semibold py-3 px-4">Dining Area</div>
+      </div>
+      
+      <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+        <img src="images/interior2.jpg" alt="Interior 3" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-lg font-semibold py-3 px-4">Modular Kitchen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose-us py-5" id="why-us">
+  <div class="container">
+    <h2 class="section-title">Why Choose Satyam Designs?</h2>
+    <div class="row mt-4">
+      <div class="col-md-6 col-lg-3 feature-box">
+        <i class="fas fa-drafting-compass feature-icon"></i>
+        <h5>Expert Architects</h5>
+        <p>We bring decades of architectural expertise with creative & vastu-compliant designs.</p>
+      </div>
+      <div class="col-md-6 col-lg-3 feature-box">
+        <i class="fas fa-clock feature-icon"></i>
+        <h5>On-Time Delivery</h5>
+        <p>Our team ensures timely project completion with structured planning.</p>
+      </div>
+      <div class="col-md-6 col-lg-3 feature-box">
+        <i class="fas fa-rupee-sign feature-icon"></i>
+        <h5>Affordable Pricing</h5>
+        <p>We offer budget-friendly packages without compromising on quality.</p>
+      </div>
+      <div class="col-md-6 col-lg-3 feature-box">
+        <i class="fas fa-users feature-icon"></i>
+        <h5>Customer Satisfaction</h5>
+        <p>We’ve delivered 1500+ homes and have 100% client satisfaction rate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>ABOUT US</h5>
+        <p>Balaji Traders is your space transformation partner, delivering Vastu-compliant and modern residential & commercial designs at affordable rates.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>SITE MAP</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="col-md-4">
+        <h5>CONTACT</h5>
+        <p>📍 10th bataliyan , Makroniya Madhya Pradesh ,India </p>
+        <p>📞 +91 1234567890</p>
+        <p>📧 balajitraders7@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">Copyright BalajiTaders.com.<br> All Rights Reserved.</div>
+  </div>
+</footer>
+
+    <div class="social-sticky">
+  <a href="https://wa.me/message/2EFLNCWMJGSGK1" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://www.instagram.com/satyam_designs_and_consultancy?igsh=YzF4ZTByd24wMmVu" target="_blank" title="Follow on Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/share/1C5YX8yJ41/" target="_blank" title="Like us on Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/@SatyamDesigns" target="_blank" title="Watch on YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  const menuIcon = document.getElementById("menu-icon");
+  const navLinks = document.getElementById("nav-links");
+
+  menuIcon.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+
+</script>
+<script>
+  const text = "Welcome To Creative Services ";
+  const speed = 100; 
+  const delayAfterComplete = 2000;
+  const delayAfterDelete = 500; 
+
+  var i = 0;
+  let isDeleting = false;
+
+  function typeWriterLoop() {
+    const el = document.getElementById("typewriter");
+
+    if (isDeleting) {
+      el.innerHTML = text.substring(0, i--);
+    } else {
+      el.innerHTML = text.substring(0, i++);
+    }
+
+    if (!isDeleting && i === text.length) {
+      isDeleting = true;
+      setTimeout(typeWriterLoop, delayAfterComplete);
+    } else if (isDeleting && i === 0) {
+      isDeleting = false;
+      setTimeout(typeWriterLoop, delayAfterDelete);
+    } else {
+      setTimeout(typeWriterLoop, speed);
+    }
+  }
+
+  window.onload = typeWriterLoop;
+</script>
+   
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".feature-box", {
+    scrollTrigger: {
+      trigger: ".why-choose-us",
+      start: "top 80%"
+    },
+    opacity: 0,
+    y: 50,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power3.out"
+  });
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</body> 
+</html>
+
+
